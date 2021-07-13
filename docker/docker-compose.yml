@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+
+ srv:
+  build: server/
+  image: mikhai1/stream:nginx-1.20.1
+  container_name: stream-hls
+  ports:
+   - "8082:80"
+   - "1935:1935"

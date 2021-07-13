@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>HLS.js</title>
+    </head>
+    <body>
+        <script src="stream/hls.js"></script>
+        <video id="video" width="640" height="480" controls autoplay></video>
+        <script>
+          var video = document.getElementById('video');
+          var videoSrc = 'http://82.146.55.176:8082/hls/stream.m3u8';
+          if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+          }
+
+         else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+          }
+        </script>
+    </body>
+</html>
